@@ -18,9 +18,6 @@ int main(int argc, char *argv[]){
             case 'a':
                 append = true;
                 break;
-            case 'i':
-                printf("case i!");
-                break;
         }
     }
     argc -= optind;
