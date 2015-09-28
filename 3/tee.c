@@ -12,11 +12,11 @@ int main(int argc, char *argv[]){
 
     //read options
     char ch;
-    bool append;
+    int append;
     while((ch = getopt(argc, argv, "ai")) != EOF){
         switch(ch) {
             case 'a':
-                append = true;
+                append = 1;
                 break;
         }
     }
