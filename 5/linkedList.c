@@ -64,17 +64,45 @@ void printLL(LinkedList *l){
     printf("\n");
 }
 
-*LinkedList getLL(int len){
+LinkedList * getLL(int len){
     //returns LL of integers w/ length len
+    LinkedList *l = malloc(sizeof(LinkedList));
+    Data *headData  = malloc(sizeof(Data));
+    headData->iType = typInt;
+    headData->value.i = 0;
+    Node *head = malloc(sizeof(Node));
+    head->data = headData;
+    Node *n = head;
+    for(int i = 1; i < len; i++){
+     Data *newData  = malloc(sizeof(Data));
+     newData->iType = typInt;
+     newData->value.i = i;
+     Node *newNode = malloc(sizeof(Node));
+     newNode->data = newData;
+     n->next = newNode;
+     n = n->next;
+    }
+    l->head = head;
+    return l;
+}
 
+void reverseLL(LinkedList *l){
+    Node *prev = NULL;
+    Node *n = l->head;
+    while(n->next != NULL){
+        Node *temp = n->next;
+        n->next = prev;
+        prev = n;
+        n = temp;
+    }
+    n->next = prev;
+    l->head = n;
 }
 
 int main(){
-    Data c = {.iType=typString, .value={.s="Hello!"}};
-    Node tail = {.data=&c, .next=NULL};
-    Data d = {.iType=typInt, .value={.i=123}};
-    Node headerNode = {.data=&d, .next=&tail};
-    LinkedList l = {.head=&headerNode};
-    printLL(&l);
+    LinkedList *l = getLL(5);
+    printLL(l);
+    reverseLL(l);
+    printLL(l);
     return 0;
 }
