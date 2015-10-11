@@ -1,0 +1,14 @@
+a) Where is GLib from and why does it exist?  Who uses it, and for what?  
+Would it have been better if they had given it a name less likely to be confused with glibc?
+
+Used by open source projects like GNOME for desktop environments and graphical interfaces. 
+Probably would have been a good idea to name it something else. 
+
+b) What are the most important pros and cons of using GLib, as opposed to another library, 
+or just using core C features?
+
+Provides data structures with memory management. Provides stuff for multithreaded programming
+needed for GUI applications, like mutexes, asynch queues, etc.
+
+c) What do you have to do to compile and run a "Hello GLib" example?
+
